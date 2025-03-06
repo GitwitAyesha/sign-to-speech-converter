@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Sign Language!</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      /* Removed overflow: hidden to allow scrolling */
+    }
+
+    h2 {
+      margin: 10px 0;
+      font-size: 2.5em;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    h2:last-of-type {
+      font-size: 1.8em;
+      font-weight: 400;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    form {
+      margin: 20px 0;
+    }
+
+    input[type="submit"] {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ff4a3d;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    img {
+      border: 5px solid #fff;
+      border-radius: 15px;
+      margin-top: 30px;
+      max-width: 90%;
+      height: auto;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Background Animation */
+    @keyframes moveBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      animation: moveBackground 10s ease infinite;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #6a11cb);
+      background-size: 200% 200%;
+    }
+
+    /* Button Pulse Animation */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 2em;
+      }
+
+      h2:last-of-type {
+        font-size: 1.5em;
+      }
+
+      input[type="submit"] {
+        padding: 12px 30px;
+        font-size: 1em;
+      }
+
+      img {
+        border-width: 3px;
+      }
+    }
+
+    /* Add Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  </style>
+</head>
+<body>
+  <h2>Sign To Alphabet Converter!</h2>
+  <h2>Designed by Ayesha & Umaima</h2>
+
+  <form method="post" action="{{ url_for('mode') }}">
+    <input type="submit" value="Predict" name="easy" />
+  </form>
+
+  <img src="{{ url_for('video_feed') }}" alt="Sign Language Video Feed">
+</body>
+</html>
